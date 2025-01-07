@@ -19,7 +19,7 @@ const Navbar = (props: Props) => {
         <ul className={`${fontBody} flex gap-4 flex-nowrap text-sm`}>
           {user ? (
             <li>
-              <Button variant={"destructive"} size={"sm"}>
+              <Button onClick={signOut} variant={"destructive"} size={"sm"}>
                 Sign Out
               </Button>
             </li>
