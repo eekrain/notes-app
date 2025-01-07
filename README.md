@@ -1,4 +1,4 @@
-#MyNotes App
+# MyNotes App
 
 Package Manager: pnpm
 
