@@ -20,8 +20,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const path = router.pathname;
-    if (path.includes("notes") && !user?.token && ready) router.push("/");
+    if (pathname.includes("notes") && !user?.token && ready) router.push("/");
   }, [user, ready, pathname]);
 
   useEffect(() => {
