@@ -38,7 +38,7 @@ const NotesList = (props: Props) => {
   if (data?.data && data?.data?.length > 0) {
     return (
       <div className="mt-8">
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-4">
           {data?.data?.map((item) => (
             <NoteItem deleteNote={deleteNote} {...item} />
           ))}
