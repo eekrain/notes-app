@@ -27,7 +27,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     try {
       const session = JSON.parse(localStorage.getItem("session") || "");
-      if (session && session?.username) {
+      if (session && session?.token) {
         setUser(session);
       }
     } catch (error) {

@@ -16,8 +16,6 @@ const NotesList = (props: Props) => {
   if (data?.data && data?.data?.length > 0) {
     return (
       <div className="mt-8">
-        <p className="text-center"> There is no notes to show</p>
-        {}
         <div className="grid grid-cols-3">
           {data?.data?.map((item) => (
             <NoteItem {...item} />
