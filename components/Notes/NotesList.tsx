@@ -1,6 +1,6 @@
 import { API_deleteChecklist, API_getChecklist } from "@/lib/api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../AuthProvider";
 import NoteItem from "./NoteItem";
 import { toast } from "sonner";
@@ -13,7 +13,14 @@ const NotesList = (props: Props) => {
   const { data } = useQuery({
     queryKey: ["notesList"],
     queryFn: () => API_getChecklist(user?.token || ""),
+    retry: true,
   });
+
+  useEffect(() => {
+    query.invalidateQueries({
+      queryKey: ["notesList"],
+    });
+  }, [user]);
 
   const { mutateAsync } = useMutation({
     mutationFn: API_deleteChecklist,
@@ -40,7 +47,7 @@ const NotesList = (props: Props) => {
       <div className="mt-8">
         <div className="grid grid-cols-3 gap-4">
           {data?.data?.map((item) => (
-            <NoteItem deleteNote={deleteNote} {...item} />
+            <NoteItem key={item.id} deleteNote={deleteNote} {...item} />
           ))}
         </div>
       </div>
