@@ -24,7 +24,7 @@ const CreateNotes = (props: Props) => {
         </DialogHeader>
 
         <div className="flex flex-col gap-4">
-          <p>anjing</p>
+          <p>test</p>
         </div>
       </DialogContent>
     </Dialog>
