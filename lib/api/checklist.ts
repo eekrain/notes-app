@@ -53,3 +53,23 @@ export const API_createChecklist = async (input: {
     data: result.data,
   };
 };
+
+export const API_deleteChecklist = async (input: {
+  token: string;
+  id: number;
+}) => {
+  const res = await fetch(`${BASE_URL}/checklist/${input.id}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${input.token}`,
+    },
+  });
+  if (!res.ok) return { success: false, message: "Gagal menghapus checklist" };
+
+  const result = (await res.json()) as BaseResult;
+  return {
+    success: true,
+    message: result?.message || "Berhasil menghapus checklist",
+  };
+};
