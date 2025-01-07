@@ -116,6 +116,12 @@ const SignUpPage = (props: Props) => {
             </form>
           </Form>
         </CardContent>
+        <CardFooter className="text-sm flex justify-center">
+          <p>Have an account?</p>&nbsp;
+          <LinkSimple href="/signin" className="inline-block">
+            Sign In Here
+          </LinkSimple>
+        </CardFooter>
       </Card>
     </div>
   );
