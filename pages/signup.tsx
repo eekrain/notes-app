@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { LinkSimple } from "@/components/ui/link";
-import { SignupForm, signupFormSchema } from "@/lib/schema";
+import { SignupForm, createChecklistSchema } from "@/lib/schema";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -32,7 +32,7 @@ type Props = {};
 const SignUpPage = (props: Props) => {
   const router = useRouter();
   const form = useForm<SignupForm>({
-    resolver: zodResolver(signupFormSchema),
+    resolver: zodResolver(createChecklistSchema),
   });
 
   const { mutateAsync, isPending } = useMutation({

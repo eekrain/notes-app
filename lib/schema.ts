@@ -20,3 +20,8 @@ export const signupFormSchema = z.object({
   email: z.string().email("Must be a valid email"),
 });
 export type SignupForm = z.infer<typeof signupFormSchema>;
+
+export const createChecklistSchema = z.object({
+  name: z.string().min(2),
+});
+export type CreateChecklistForm = z.infer<typeof createChecklistSchema>;

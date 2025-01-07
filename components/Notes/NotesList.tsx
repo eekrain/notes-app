@@ -12,15 +12,23 @@ const NotesList = (props: Props) => {
     queryKey: ["notesList"],
     queryFn: () => API_getChecklist(user?.token || ""),
   });
+
+  if (data?.data && data?.data?.length > 0) {
+    return (
+      <div className="mt-8">
+        <p className="text-center"> There is no notes to show</p>
+        {}
+        <div className="grid grid-cols-3">
+          {data?.data?.map((item) => (
+            <NoteItem {...item} />
+          ))}
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="mt-8">
       <p className="text-center"> There is no notes to show</p>
-
-      <div className="grid grid-cols-3">
-        {data?.data?.map((item) => (
-          <NoteItem {...item} />
-        ))}
-      </div>
     </div>
   );
 };
