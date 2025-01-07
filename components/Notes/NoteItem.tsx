@@ -13,15 +13,7 @@ const NoteItem = (props: Props) => {
   return (
     <Card className="pt-6">
       <CardContent className="flex justify-between items-center">
-        <div>
-          <Checkbox id={`${props.id}`} />
-          <label
-            htmlFor={`${props.id}`}
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ml-4"
-          >
-            {props.name}
-          </label>
-        </div>
+        <p>{props.name}</p>
         <Button onClick={async () => props.deleteNote(props.id)} size={"icon"}>
           <FaTrash />
         </Button>
